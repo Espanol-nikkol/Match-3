@@ -38,6 +38,7 @@ namespace GameForestTest
             Margin = Padding.Empty;
             Padding = Padding.Empty;
             Position = (i, k);
+            BackColor = Color.Transparent;
 
             Form = NUMBER_TO_FORM[form_number];
             switch (Form)
@@ -64,6 +65,18 @@ namespace GameForestTest
                     break;
             }
             Click += Chip_Click;
+            GotFocus += Chip_GotFocus;
+            LostFocus += Chip_LostFocus;
+        }
+
+        private void Chip_LostFocus(object sender, EventArgs e)
+        {
+            BackColor = Color.Transparent;
+        }
+
+        private void Chip_GotFocus(object sender, EventArgs e)
+        {
+            BackColor = Color.SandyBrown;
         }
 
         private void Chip_Click(object sender, EventArgs e)
